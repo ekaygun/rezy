@@ -4,7 +4,14 @@ const cors = require('cors');
 const axios = require('axios');
 
 const app = express();
-app.use(cors());
+
+// Configure CORS
+app.use(cors({
+  origin: ['https://perfect-courtesy-production.up.railway.app', 'http://localhost:3000'],
+  methods: ['GET', 'POST'],
+  credentials: true
+}));
+
 app.use(express.json());
 
 // Root route
@@ -21,14 +28,15 @@ app.get('/health', (req, res) => {
 app.post('/api/search', async (req, res) => {
   try {
     const { query, filters } = req.body;
+    console.log('Search request:', { query, filters }); // Add logging
     
-    // Mock response for now until eBay API is integrated
+    // Mock response for now
     res.json({
       itemSummaries: [
         {
           itemId: '1',
-          title: 'Test Item',
-          price: { value: 19.99 },
+          title: 'Nike Air Max',
+          price: { value: 99.99 },
           condition: 'New',
           image: { imageUrl: '/api/placeholder/200/200' }
         }
