@@ -1,14 +1,19 @@
 import './globals.css'
+import type { Metadata } from 'next'
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Rezy',
   description: 'Reselling Made Easy',
 }
 
-export default function RootLayout({ children }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   return (
     <html lang="en">
-      <body className="bg-emerald-50">{children}</body>
+      <body>{children}</body>
     </html>
-  );
+  )
 }
