@@ -1,9 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ['i.ebayimg.com'],
-  },
   reactStrictMode: true,
+  swcMinify: true
 }
 
 module.exports = nextConfig
